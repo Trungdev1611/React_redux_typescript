@@ -1,0 +1,28 @@
+Provider cho phep cung cap state và dispatch đến component, nhưng mình phải chỉ ra chính xác
+cái state và cái actions nào mình muốn để chắc chắn rằng component từng component có thể 
+truy cập chính xác đến state nó cần. Để thực thi điều này thì có 2 function
+mapStateToProps() và mapDispatchToProps()
+
+Trong function này, bạn khai báo những state nào bạn muốn truy cập và action creator nào cần
+dispatch
+
+
+1. mapStateToProps(): 
+- nhận 2 đối số nhưng đối số chính là state
+- Trả về 1 object với key tùy chọn là một props
+- cho phép truy cập vào thuộc tính qua props
+VD:
+initialState = {name: "Nam", age: 20}
+ var mapStateToProps = (state) => {
+	return {
+	daylamotprops: state.name
+	}
+}
+
+Từ đây component có thể truy cập được qua prop: this.props.daylamotprops trong đó state trả
+về ở đây là state ở bên reducer chứ không phải state trong component
+
+
+2. mapDispatchToProps() được sử dụng để cung cấp một action được chỉ định đến React Component
+Giống như mapStatetoProps nhưng thay vì return một phần của State thì nó lại return về function 
+mà gọi hàm dispatch với một action creator và action có liên quan

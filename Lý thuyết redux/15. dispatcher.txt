@@ -1,0 +1,23 @@
+Một action từ phía người dùng như nhập một ô input, click một button...
+sẽ được gửi đến store qua một phương thức là dispatcher
+
+Một action chỉ đơn giản là một đối tượng mà nó chứa thông tin về
+loại hành động xảy ra. Đối tượng action có thể có thể mang thông tin hoặc không
+nhưng bắt buộc phải mang type property mà nó chỉ định
+
+const action = {
+  type: 'LOGIN'
+}
+
+b/ Acioncreator là một function tạo ra một action
+const loginAction = () => {
+  return {
+    type: 'LOGIN'
+  }
+};
+
+ta có thể dùng dispatch theo 2 cách sau là như nhau. Thay vì dispatch action thì ta dispatch
+một function mà trả về action
+
+store.dispatch(actionCreator())
+store.dispatch({type: "LOGIN"})

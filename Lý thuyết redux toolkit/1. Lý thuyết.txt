@@ -1,0 +1,2 @@
+1. Redux thì khá là dài dòng. Phải tạo store, reducer, action... khá dài dòng. Vì vậy với
+mục đích muốn rút ngắn thời gian lại thì redux-team đã tạo ra redux tookit (bộ công cụ của redux). Bản chất của redux-toolkit thực chất vẫn là redux

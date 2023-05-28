@@ -1,0 +1,32 @@
+Reducer function là hàm xử lý state. Nhận vào 2 tham số là state ban đầu và
+action để return về một new state.
+
+
+Lưu ý: State trong redux là chỉ đọc. Hay nói các khác reducer luôn luôn chỉ nhận bản
+copy của state và không được phép chỉnh sửa state trực tiếp.
+
+const defaultState = {
+  login: false
+};
+
+const reducer = (state = defaultState, action) => {
+  // Change code below this line
+  if(action.type === "LOGIN") {
+    return {login: true} // lưu ý không trả về state.login = true; return state
+  }
+  else {
+    return state
+  }
+  // Change code above this line
+};
+
+const store = Redux.createStore(reducer);
+
+const loginAction = () => {
+  return {
+    type: 'LOGIN'
+  }
+};
+
+
+

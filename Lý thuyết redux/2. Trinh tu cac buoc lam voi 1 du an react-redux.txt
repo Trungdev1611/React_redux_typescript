@@ -1,0 +1,18 @@
+1. Tạo dự án react: npx create-react-app tenduan
+2. Chạy câu lệnh npm install redux
+3. tiếp tục chạy câu lệnh npm install react-redux và vào file package-lock.json để thấy được kết quả
+4. Cuối cùng chạy câu lệnh npm start
+5. import {createStore} from 'redux'
+6. Tạo store = createStore(reducers) // tạo store với hàm createStore nhận một reducers
+7. import Provider từ 'react-redux'
+8. Trong file index.js bao App bới Provider store = {store}
+9. Trong file muốn kết nối lên dữ liệu từ redux ta import {connect} from 'react-redux'
+10. Khai báo let myStatetoProps = (state) => {
+		// return 1 object có key là props và property là một dữ liệu muốn lấy từ state
+		return {
+			dayla1props: state
+		}
+	
+	}
+11. Trong phần export nhờ phải dùng connect để kết nối lên redux
+12. Dữ liệu ta muốn truy cập nằm ở đây: props.dayla1props

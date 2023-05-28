@@ -1,0 +1,8 @@
+Provider bao quanh component từ React Redux mà bao quanh react app của bạn. 
+
+<Provider store={store}>
+  <App/>
+</Provider>
+
+Provider bao quanh component chính của React App của bạn. Sự bao quanh này cho phép truy cập vào 
+Redux store và gửi function qua component tree. 

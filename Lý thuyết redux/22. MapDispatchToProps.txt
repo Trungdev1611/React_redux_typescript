@@ -1,0 +1,25 @@
+Hàm mapdispatchToProps sẽ dispatch một actioncreator lên store để reducer tương ứng để xử lý, 
+trên reducer sẽ có tương ứng với trường hợp có cùng type như phía action truyền lên
+Action creator được truyền lên có thể mang theo tham số để truyền lên 
+
+Vd:
+action creator
+ export const ADDTASK = (task) => {
+	return {
+	type: "LOGIN",
+	task: task //task ở bên phải là tham số truyền bên trên
+}
+}
+
+var mapDispatchToProps = (dispatch,props) {
+	return {
+	onAddtask: (task) => {
+	dispatch(ADDTASK(task)) // gửi action có type: "LOGIN" này lên store
+	}
+}
+}
+
+truy cập: this.props.onAddtask(truyenthamsovaoday)
+Trong reducer sẽ có trường hợp
+case "LOGIN":
+tham số đươnc truyền trong hàm thí.props.onAddtask kia sẽ được truy cập ở đây

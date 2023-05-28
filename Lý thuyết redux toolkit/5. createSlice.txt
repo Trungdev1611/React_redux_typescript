@@ -1,0 +1,37 @@
+1. Trong reduxToolkit thì khi ta trả về 1 state mới ta không phải tạo ra một bản sao của state và thay đổi bản sao của state đó nữa mà có thể thay đổi trực tiếp state. Việc tạo ra bản sao của state thì redux-toolkit đã thực hiện thay chúng ta
+
+1*** CreateSlice tương đương với việc sử dụng gộp của createaction và CreateReducer
+2. CreateSlice nhận 3 đối số trong nó bao gồm
+a/name: yêu cầu bắt buộc phải có: được sử dụng làm tiền tố cho action.type
+b/initialState: được sử dụng để làm state trong lần chạy đầu tiên (lưu ý không được đổi tên initialState)
+c/ một object với key là các action và value là cac reducer tương ứng với các action đó tương tự như switch case
+
+//như bên dưới thì increment, decrement, reset là các action.type
+nếu như bây giờ mình đang hiểu là action.type = name + key = counter/increment
+
+// như bên dưới thì increment, decrement, reset là các actioncreator.
+//Giống như việc khai báo const increment = actionCreator() 
+//nên increment({id:1, name:"Trung"}) sẽ console.log ra // {type: counter/increment, payload: {id:1, name:"Trung"}  }
+import {createSlice} from '@reduxjs/toolkit'
+const initialState = {value: 0}
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: (state,actions) => {
+      state.value = state.value + actions.payload
+      return state
+    },
+    decrement: (state,actions) => {
+      state.value = state.value - actions.payload
+      return state
+    },
+    reset: (state) => {
+      state.value = 0;
+      return state
+    }
+  }
+})
+export const {increment, decrement, reset} = counterSlice.actions //increment, decrement, reset là các action creator
+
+export default counterSlice.reducer

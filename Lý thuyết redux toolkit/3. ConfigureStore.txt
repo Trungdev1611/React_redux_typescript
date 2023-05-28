@@ -1,0 +1,32 @@
+1. Nếu như trong dự án Redux thuần ta import createStore để có thể tạo ra được store và thêm đối số thứ 2 để có thể add được DevtoolRedux như sau:
+
+import {createStore} from 'redux'
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
++) Thay vì vậy trong reduxtoolkit ta chỉ sử dụng configureStore từ reduxtoolkit thì sẽ được tự động add thêm devtoolRedux mà không cần tham số thứ 2
+
+import {configureStore} from '@reduxjs/toolkit'
+const store = configureStore({reducer: {}}) 
+
+import { configureStore } from '@reduxjs/toolkit'
+import rootReducer from './reducers'
+
+const store = configureStore({
+  reducer: rootReducer,
+})
+
+export default store
+
+** hoặc cũng có thể gọi nhiều slice Reducer thì nó cũng giống như combineReducer trong redux
+import { configureStore } from '@reduxjs/toolkit'
+import usersReducer from './usersReducer'
+import postsReducer from './postsReducer'
+
+const store = configureStore({
+  reducer: {
+    users: usersReducer,
+    posts: postsReducer,
+  },
+})
+
+export default store

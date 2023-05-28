@@ -1,0 +1,53 @@
+Thunk la một middleware can thiệp được vào giữa quá trình gửi một action lên store
+2. Theo mình hiểu thực chất bản chất của thunk là thay vì action là một object thuần túy (plain object) thì trong thunk action sẽ là một function 
+
+3. bản chất  của nó sẽ là: dispatch một action là một function call APi, sau khi có dữ liệu từ api sẽ  dispatch tiếp một action thuần túy tiếp để cập nhật dữ liệu
+
+Vd: 
+// action thuong
+action getData = (data) => {
+	return {type: 'GETDATA', payload: data}
+}
+// action creator thunk
+actiongetTodoRequest = (dispatch) => {
+	return  async () => {
+		let data = await axios.get('api')
+		dispatch(getData(data))
+	}
+	}
+
+
+// tren reducer se la
+
+function reducer(state, action) {
+	switch(action.type) {
+		case: 'GETTODO':
+		return action.payload
+}
+
+}
+
+********
+const url  = 
+'https://61986f0b164fa60017c23078.mockapi.io/api/v1/users'
+
+const actioncreatorThunk = () => {
+  return (dispatch) => {
+    fetch(url).then(res=> res.json())
+    .then(data => dispatch({
+      type: 'updateTodo',
+      payload: data
+    }))
+  }
+} 
+export default actioncreatorThunk
+
+
+
+
+
+
+
+1 vi du su thunk
+
+https://codesandbox.io/s/holy-pine-kij1wr?file=/src/App.js

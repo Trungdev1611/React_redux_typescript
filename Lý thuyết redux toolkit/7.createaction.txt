@@ -1,0 +1,42 @@
+1. Thay vì việc tạo các action creator trong react bằng các function js thuần như này
+ actioncreator1 = function (test) {
+	return {
+	type: 'ADD_TODO',
+	payload: test
+	}	
+	
+}
+thì trong redux-toolkit ta có thể dùng createaction để làm việc đó ta sử dụng actioncreator
+
+const addTodo = createAction('ADD_TODO')
+
+addTodo({ text: 'Buy milk' }) sẽ ra là 1 object như này {type: 'ADD_TODO', payload: {text: 'Buy milk'}}
+
+**addTodo.toString() là tương đương với addTodo.type vì vậy trong một số trường hợp redux-toolkit ta thấy nó chỉ có khai báo addTodo vì reduxToolkit sẽ tự ghi đè addTodo.toString() 
+
+**Createaction cũng cho phép nhận vào 1 callback function. Nó được sử dụng để customize kết 
+quả trường payload
+
+import { createAction, nanoid } from '@reduxjs/toolkit'
+
+const addTodo = createAction('todos/add', function prepare(text) {
+  return {
+    payload: {
+      text,
+      id: nanoid(),
+      createdAt: new Date().toISOString(),
+    },
+  }
+})
+
+console.log(addTodo('Write more docs'))
+/**
+ * {
+ *   type: 'todos/add',
+ *   payload: {
+ *     text: 'Write more docs',
+ *     id: '4AJvwMSWEHCchcWYga3dj',
+ *     createdAt: '2019-10-03T07:53:36.581Z'
+ *   }
+ * }
+ **/

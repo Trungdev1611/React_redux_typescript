@@ -1,0 +1,2 @@
+1. Provider trong redux cũng giống như Provider trong reduxtoolkit đều được import vào 
+từ 'react-redux' và đều bao quanh component cấp cao nhất App.js và có props là store = {store}

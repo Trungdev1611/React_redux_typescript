@@ -1,0 +1,1 @@
+1. Không chỉnh sửa trực tiếp state trong redux mà chỉnh sửa trên bản copy của nó

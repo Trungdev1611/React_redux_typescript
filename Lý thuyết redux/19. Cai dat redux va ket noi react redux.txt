@@ -1,0 +1,4 @@
+1. Chay cau lenh npm install redux react-redux --save
+2. De ket noi redux voi react ta phai su dung provider
+
+import { Provider } form 'react-redux'

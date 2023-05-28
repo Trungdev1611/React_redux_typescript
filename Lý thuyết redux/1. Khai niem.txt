@@ -1,0 +1,24 @@
+Redux là 1 framework quản lý state trong web app và ReactJS là
+một trong số đó
+Redux giúp quản lý các state trong Reactjs, Các State muốn
+cập nhật thì đều phải qua một cửa duy nhất là Redux Store (luồng dữ liệu 1 chiều: ReduxStrore ->view> action(event) --> function Recuder -->state mới
+
+2. Redux store là một object quản lý state, bên trong nó có sẵn phương thức creatStore() để tạo 1 Redux Store
+và nhận một đối số là một hàm reducer function
+	Redux.createStore(reducer);
+
+3. GetState method là một phương thức giúp lấy giá trị state hiện tại trong Redux
+
+6. Action trong redux đơn giản là một object chứa thông tin về một sự kiện xảy ra. 
+ReduxStore sẽ nhận những object này và update state phù hợp. Đôi khi action cũng có thể mang theo dữ liệu (không bắt buộc), nhưng lại bắt buộc action 
+mang theo loại thuộc tính (type) của action (vd: "LOGIN")
+HÃY NGHĨ VỀ REDUX ACTION GIỐNG NHƯ MỘT MESSENGER MÀ GỬI THÔNG TIN TỪ SỰ KIỆN VỀ REDUX STORE, SAU ĐÓ DỰA VÀO LOẠI ACTION ĐƯỢC CUNG CẤP ĐỂ UPDATE STATE TƯƠNG ỨNG
+
+4. store.dispatch  gửi một Action(có chứa type)  đến Redux Store
+
+5. REDUCER:  Khi action được dispatch(action) đến ReduxStore thì nhiệm vụ còn lại là của hàm reducer
+   Reducer nhận 2 biến là state và action và đưa ra state mới để render lại trong React Js. Reducer không làm thay đổi State trực tiếp mà tạo ra một state copy 
+
+6. Phương thức Subrice để nhận bất kỳ sự thay đổi nào trong state. Mỗi lần nhận 1 action thì hàm store.subscribe nhận được sự thay đổi
+
+7. Phương thức combineReducers() nhận một object làm đối số. Obj có các key tự đặt và các value là các reducer

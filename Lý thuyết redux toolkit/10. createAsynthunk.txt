@@ -1,0 +1,5 @@
+1. CreateAsyncthunk được sử dụng trong reduxtoolkit. CreateAsyncthunk đã được tích hợp sẵn redux thunk middleware
+2. CreateAsyncthunk nhận vào 2 tham số, tham số đầu tiên là một chuỗi string, làm nhiệm vụ prefix (tiền tố) của một actioncreator, tham số thứ 2 là một callback function (hàm này thường sẽ gọi API). giá trị trả về của callback function sẽ được tự động dispatch đến reducer thay vì ta phải dispatch như trước đây trong redux thunk
+
+3. createasyncthunk cũng  tự động tạo ra các trạng thái pending, fulfill và reject. Dựa vào đó ta có thể setloading mà ko cần phải thực hiện thủ công như trước
+3. tóm lại createAsyncthunk về cơ bản thì nó vẫn là thunk nhưng được team redux hỗ trợ một vài việc tự động mà không phải thực hiện thủ công như redux

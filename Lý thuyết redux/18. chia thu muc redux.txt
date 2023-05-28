@@ -1,0 +1,4 @@
+1. tao 1 thu muc action voi file index.js ben trong de chua cac action
+2. Tạo thư mục constant chứa action type để lưu các type action dưới dạng hằng số
+3. Tạo một thư mục reducers với file index.js chứa reducer và initialState (nhớ export ra)
+Tạp các file js trong reducers tương ứng với từng chức năng vd sort.js, status.js

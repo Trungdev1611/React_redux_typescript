@@ -1,0 +1,4 @@
+getState() trong redux là một hàm dựng sẵn mà nó cho
+phép lấy được giá trị state hiện tại trong đối tượng reduxStore 
+
+Syntax: store.getState()

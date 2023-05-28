@@ -1,0 +1,18 @@
+Redux được sử dụng để quản lý state
+thay vì việc truyền đi truyền lại state giữa các component thì redux được sử dụng 
+để quản lý state để cho bất kỳ component nào cũng có thể truy cập được state
+Bao gồm
+a/ Store - nơi quan trọng nhất- là nơi quản lý state để cung cấp cho các component
+** Các component sẽ có các sự kiện như bấm một button hay nhập một ô input. Khi người dùng
+thực hiện các việc này (Action) thông tin sự kiện này sẽ được gửi lên store bằng phương thức dispatch.
+Khi gửi action lên store thì phải được ghi kèm loại (type)của hành động để hàm reducer của store phân tích và xử lý đưa 
+ra state mới.
+
+
+b/ Phương thức createStore() trên đối tượng redux (redux.createSore()) để tạo redux store. Phương thức creteStore mang một tham số 
+là một hàm reducer. Hàm reducer làm biến đổi state, hàm nhận vào state hiện tại và biến đổi sang state mới
+
+var store = Redux.createStore(reducer)
+hàm reducer: const reducer = (state = 5) => {
+  return state;
+}

@@ -1,0 +1,3 @@
+1. CreateReducer trong redux-toolkit về cơ bản thì cũng giống như reducer trong redux nhưng vẫn có một số khác biệt. createReducer có thể thay đổi state trực tiếp vì nó sử dụng thư viện Immer bên trong. Việc thay đổi state trực tiếp này đặc biệt hiệu quả khi việc các object lồng nhau hay các mảng lồng nhau ta thay đổi state và không cần clone object hoặc array đó trước khi thay đổi.
+
+2.

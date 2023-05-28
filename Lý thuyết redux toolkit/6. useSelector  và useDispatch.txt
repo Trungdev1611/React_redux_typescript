@@ -1,0 +1,13 @@
+1. useSelector có thể coi giống như mapStateToProps dùng để lấy dữ liệu từ store về component
+- mapStateToProps phải có connect đi kèm còn useSelector thì không cần
+
+ const selector1 = useSelector(state => {
+    return state
+  } )
+
+2. useDispatch có thể coi giống như mapDispatchToProps dùng để gửi một action đến reducer. Nếu action trung với action trên reducer thì sẽ thực thi câu lệnh tương ứng
+
+const dispatch = useDispatch()
+onClick = {() => dispatch(increment(1))}
+
+** tham số của hàm bên trong dispatch là payload của action (dữ liệu được gửi kèm action). Nếu không có  tham số thì payload là undefine

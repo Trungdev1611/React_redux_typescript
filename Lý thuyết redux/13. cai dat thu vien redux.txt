@@ -1,0 +1,10 @@
+Để import file js ta sử dụng 
+import import demo from './training/demo';
+với sau từ demo là đường dẫn đến file js
+
+** Cài đặt redux
+1. Chạy câu lệnh npm install redux --save
+2. trong file demo.js ta sử dụng
+import {creatstore} from 'redux'
+const store = createStore(reducer)
+

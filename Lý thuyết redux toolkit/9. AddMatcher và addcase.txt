@@ -1,0 +1,3 @@
+Addmatcher trong redux asyncthunk nhận vào 2 đối số (callback, reducer) và reducer sẽ được thực thi khi callback return true
+
+Addcase trong redux asyncthunk thì phạm vi nhỏ hơn vì nó chỉ kiểm tra action.type. Nếu giống action.type thì thực thi reducer
