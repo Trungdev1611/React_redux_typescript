@@ -1,0 +1,46 @@
+1. action từ view được dispatch, 
+dispatch({type: "INCREMENT", payload: abc})
+
+2. có 1 hàm watchSaga sẽ theo dõi action đó, có 1 build in function là takeEvery hoặc takeLasted tùy mong muốn
+
+export function* watchCallAPIWhenActionDispatch() {
+  yield takeEvery(`START_GET_DATA_API`, fetchData)  //hàm fetchData -worker function được dùng để gọi API và sau khi có kết quả thì dispatch tiếp 1 action
+}
+
+function* fetchData(payload) {  //payload có thể lấy ở đây
+  try {
+    //gọi api
+    const response: AxiosCall<Response> = yield call(
+      //call nhận vào 2 đôi số, 1 là tên hàm gọi và 2 là đối số của hàm đó
+      axios.get,
+      `https://retoolapi.dev/oWlrVT/data`
+    )
+    //put 1 action
+    yield put({ type: `GET_DATA_API_SUCCESS`, payload: response })
+  } catch (error) {
+    yield put({ type: `GET_DATA_API_ERROR`, payload: error })
+  }
+}
+
+3. Khi có nhiều saga ta dùng take all [mảng saga] để gọi nhiều saga 1 lần
+export default function* rootSaga() {
+    yield all([
+        watchCallAPIWhenActionDispatch(),
+    ])
+  }
+4. bên store
+
+
+import createSagaMiddleware  from 'redux-saga';
+import { applyMiddleware, createStore } from "redux";
+import reducerMain from "./reducer";
+
+
+export const sagaMiddleware = createSagaMiddleware()
+const store = createStore(reducerMain, applyMiddleware(sagaMiddleware) )
+
+export default store
+
+5. Bên file main.ts hoặc index.ts thì rootSaga ở bên trên ta đưa vào và gọi trong file
+
+sagaMiddleware.run(rootSaga)
